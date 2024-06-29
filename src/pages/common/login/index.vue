@@ -1,16 +1,22 @@
 <template>
   <view class="content">
-    <up-button
-      type="primary"
-      :plain="true"
-      text="镂空"
-      @tap="submit"
-      class="button"
-    ></up-button>
+    <van-button type="danger" size="small">111</van-button>
+
+    <van-field :value="value" placeholder="请输入用户名" @change="onChange" />
   </view>
 </template>
 
 <script setup>
+import { useUserStore } from "@/pinia/user.js";
+const user = useUserStore();
+
+const userInfo = computed(() => user.userInfo);
+
+console.log(userInfo);
+
+const value = ref("");
+
+const onChange = () => {};
 const submit = () => {
   uni.reLaunch({ url: "/pages/tab/home/index" });
 };
@@ -18,8 +24,9 @@ const submit = () => {
 
 <style lang="scss">
 .content {
-  .button {
-    margin-bottom: 30rpx;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 </style>

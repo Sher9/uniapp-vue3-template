@@ -9,11 +9,10 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
+.hbuilderx
 dist
 *.local
-*.md
 *.history
-*.json
 # Editor directories and files
 .idea
 *.suo
